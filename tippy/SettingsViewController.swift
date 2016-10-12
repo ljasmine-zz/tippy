@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tipText: UILabel!
     @IBOutlet weak var lunchTipText: UILabel!
-    
     @IBOutlet weak var dinnerTipText: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
     
@@ -29,22 +28,15 @@ class SettingsViewController: UIViewController {
     let step: Float = 0.01
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         let defaults = UserDefaults.standard
-        let darkOn = defaults.bool(forKey: "darkDefault")
-        
-        if darkOn {
-            darkSwitch.isOn = true
-            darkTheme()
-        } else {
-            darkSwitch.isOn = false
-            lightTheme()
-        }
         
         let defaultTip = defaults.float(forKey: "tipPercentage")
         let lunchTip = defaults.float(forKey: "lunchTip")
         let dinnerTip = defaults.float(forKey: "dinnerTip")
+        
         tipSlider.setValue(defaultTip, animated: false)
         lunchTipSlider.setValue(lunchTip, animated: false)
         dinnerTipSlider.setValue(dinnerTip, animated: false)
@@ -52,6 +44,22 @@ class SettingsViewController: UIViewController {
         tipLabel.text = String(format:"%.0f", defaultTip * 100) + "%"
         lunchTipLabel.text = String(format:"%.0f", lunchTip * 100) + "%"
         dinnerTipLabel.text = String(format:"%.0f", dinnerTip * 100) + "%"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // update view with correct theme colors
+        let defaults = UserDefaults.standard
+        
+        let darkOn = defaults.bool(forKey: "darkDefault")
+        if darkOn {
+            darkSwitch.isOn = true
+            darkTheme()
+        } else {
+            darkSwitch.isOn = false
+            lightTheme()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,6 +132,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func applyDarkTheme(_ sender: AnyObject) {
+        
         let defaults = UserDefaults.standard
         
         if (darkSwitch.isOn) {
@@ -136,6 +145,7 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func resetTip(_ sender: AnyObject) {
+       
         UserDefaults.standard.set(0.15, forKey: "tipPercentage")
         
         // update slider and tip percentage in label
@@ -144,6 +154,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func resetLunchTip(_ sender: AnyObject) {
+       
         UserDefaults.standard.set(0.18, forKey: "lunchTip")
         
         // update slider and tip percentage in label
@@ -152,6 +163,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func resetDinnerTip(_ sender: AnyObject) {
+        
         UserDefaults.standard.set(0.20, forKey: "dinnerTip")
         
         // update slider and tip percentage in label

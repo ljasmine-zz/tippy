@@ -101,11 +101,11 @@
 			children = (
 				BF1383F51DAD60D300EB83BF /* AppDelegate.swift */,
 				BF1383F71DAD60D300EB83BF /* ViewController.swift */,
+				BF1384011DAD60D300EB83BF /* Info.plist */,
 				BF1383F91DAD60D300EB83BF /* Main.storyboard */,
 				BF1384231DADAB0B00EB83BF /* SettingsViewController.swift */,
 				BF1383FC1DAD60D300EB83BF /* Assets.xcassets */,
 				BF1383FE1DAD60D300EB83BF /* LaunchScreen.storyboard */,
-				BF1384011DAD60D300EB83BF /* Info.plist */,
 			);
 			path = tippy;
 			sourceTree = "<group>";

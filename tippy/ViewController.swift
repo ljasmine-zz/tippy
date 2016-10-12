@@ -25,8 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipText: UILabel!
     
     let step: Float = 0.01
-    var lunchTip: Float = 0
-    var dinnerTip: Float = 0
+    var lunchTip: Float = 0.18
+    var dinnerTip: Float = 0.20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             lightTheme()
         }
 
-        
+        // retrieve and save lunch and dinner tip percentages from database
         lunchTip = defaults.float(forKey: "lunchTip")
         dinnerTip = defaults.float(forKey: "dinnerTip")
 
@@ -56,10 +56,12 @@ class ViewController: UIViewController {
         percentageLabel.text = String(format:"%.0f", tipSlider.value * 100) + "%"
         timeControl.selectedSegmentIndex = -1
         
+        // update calculation based on stored values
         calculateTip(self)
     }
     
     @IBAction func sliderValueChanged(_ sender: AnyObject) {
+        
         // Set the label text to the value of the slider as it changes
         let roundedValue = round(tipSlider.value / step) * step
         tipSlider.value = roundedValue
@@ -70,15 +72,36 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(_ sender: AnyObject) {
+        
         let bill = Double(billField.text!) ?? 0
         let tip = bill * Double(tipSlider.value)
         let total = bill + tip
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        addTipAnimation()
+        addTotalAnimation()
     }
     
-    @IBAction func timeChanged(_ sender: AnyObject) {
+    func addTipAnimation() {
+        self.totalLabel.alpha = 0
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn,
+                       animations: {
+                        self.totalLabel.alpha = 1
+            }, completion: nil)
+    }
+    
+    func addTotalAnimation() {
+        self.tipLabel.alpha = 0
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn,
+                       animations: {
+                        self.tipLabel.alpha = 1
+            }, completion: nil)
+    }
+    
+    @IBAction func calculateMealSpecificTip(_ sender: AnyObject) {
+        
         let percentagesArray = [lunchTip, dinnerTip]
         let index = timeControl.selectedSegmentIndex
         var tipPercent = tipSlider.value
@@ -88,8 +111,8 @@ class ViewController: UIViewController {
             percentageLabel.text = String(format:"%.0f", tipPercent * 100) + "%"
             calculateTip(self)
         }
+
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

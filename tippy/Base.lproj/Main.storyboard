@@ -95,7 +95,7 @@
                                     <segment title="Dinner"/>
                                 </segments>
                                 <connections>
-                                    <action selector="timeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="XZt-ju-vEz"/>
+                                    <action selector="calculateMealSpecificTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="zH3-mm-8EN"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
