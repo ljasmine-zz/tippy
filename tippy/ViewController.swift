@@ -184,7 +184,7 @@ class ViewController: UIViewController {
         let timestamp = defaults.object(forKey: "billSavedTimeStamp") as! Date?
         
         // check if it's been more than 10 min since the last timestamp
-        if (timestamp == nil || currentTime.timeIntervalSince(timestamp!) > TimeInterval(60)) {
+        if (timestamp == nil || currentTime.timeIntervalSince(timestamp!) > TimeInterval(600)) {
             return ""
         } else {
             return billAmount!
