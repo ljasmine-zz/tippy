@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] The layout of the app was improved by changing font/layout and adding sliders which allow the user to have more flexibility in setting the tip percentages  
+* [x] The look of the app was improved by changing font/layout and adding sliders which allow the user to have more flexibility in setting the tip percentages  
 * [x] App will suggest a lunch and dinner tip percentage for those users that need more guidance
 * [x] App allows users to reset the tip percentages to predefined values by clicking on the "reset" buttons in settings
 * [x] Added App Icon - made by Roundicons in technology from www.flaticon.com 
