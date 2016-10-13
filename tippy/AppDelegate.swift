@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // specify user default values
+        let initialDefaults: [String: Any] =
+            [
+                "tipPercentage": 0.15,
+                "lunchTip": 0.18,
+                "dinnerTip": 0.20,
+                "billAmount": 0.00
+        ]
+        UserDefaults.standard.register(defaults: initialDefaults)
+        
         return true
     }
 

@@ -25,8 +25,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipText: UILabel!
     
     let step: Float = 0.01
-    var lunchTip: Float = 0.18
-    var dinnerTip: Float = 0.20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +46,9 @@ class ViewController: UIViewController {
         } else {
             lightTheme()
         }
-
-        // retrieve and save lunch and dinner tip percentages from database
-        lunchTip = defaults.float(forKey: "lunchTip")
-        dinnerTip = defaults.float(forKey: "dinnerTip")
+        
+        // check if there is a saved bill amount
+        billField.text = getBillAmount()
 
         tipSlider.value = defaultTipPercentage
         percentageLabel.text = String(format:"%.0f", tipSlider.value * 100) + "%"
@@ -78,8 +75,18 @@ class ViewController: UIViewController {
         let tip = bill * Double(tipSlider.value)
         let total = bill + tip
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        let tipLocale = tip as NSNumber
+        let totalLocale = total as NSNumber
+        
+        // display the tip and total bill amount in current locale
+        // using the thousands separator
+        tipLabel.text = convertToLocale(price: tipLocale)
+        totalLabel.text = convertToLocale(price: totalLocale)
+        
+        // write the updated bill amount and new timestamp to database
+        let defaults = UserDefaults.standard
+        defaults.set(billField.text! as String, forKey: "billAmount")
+        defaults.set(NSDate(), forKey: "billSavedTimeStamp")
         
         addTipAnimation()
         addTotalAnimation()
@@ -102,6 +109,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateMealSpecificTip(_ sender: AnyObject) {
+        
+        let defaults = UserDefaults.standard
+        
+        // retrieve lunch and dinner tip percentages
+        // from database
+        let lunchTip = defaults.float(forKey: "lunchTip")
+        let dinnerTip = defaults.float(forKey: "dinnerTip")
         
         let percentagesArray = [lunchTip, dinnerTip]
         let index = timeControl.selectedSegmentIndex
@@ -152,7 +166,30 @@ class ViewController: UIViewController {
         tipText.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         totalText.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
-
+    
+    func convertToLocale(price: NSNumber) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter.string(from: price)!
+    }
+    
+    func getBillAmount() -> String {
+        
+        let defaults = UserDefaults.standard
+        let currentTime = NSDate()
+        let billAmount = defaults.string(forKey: "billAmount")
+        let timestamp = defaults.object(forKey: "billSavedTimeStamp") as! Date?
+        
+        // check if it's been more than 10 min since the last timestamp
+        if (timestamp == nil || currentTime.timeIntervalSince(timestamp!) > TimeInterval(60)) {
+            return ""
+        } else {
+            return billAmount!
+        }
+    }
 
 }
 

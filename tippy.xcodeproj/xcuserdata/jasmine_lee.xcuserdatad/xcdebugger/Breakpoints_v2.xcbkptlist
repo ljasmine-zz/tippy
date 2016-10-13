@@ -181,11 +181,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tippy/ViewController.swift"
-            timestampString = "498002364.32408"
+            timestampString = "498022959.864813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "darkTheme()"
             landmarkType = "7">
          </BreakpointContent>
@@ -197,12 +197,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tippy/ViewController.swift"
-            timestampString = "498014699.128076"
+            timestampString = "498022959.864813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "calculateTip(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
