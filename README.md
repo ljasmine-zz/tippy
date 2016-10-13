@@ -1,38 +1,41 @@
-# iOS Bootcamp Pre-Work: Tippy
+# Pre-work - *Tippy*
 
-The objective of the pre-work assignment is to create an app called *Tippy* that calculates the tip based on some input amount that the user enters.
+**Tippy** is a tip calculator application for iOS.
+
+Submitted by: **Chia-Hsuan (Jasmine) Lee**
+
+Time spent: **10** hours spent in total
 
 ## Table of Contents
 
-1. [Required Features](#required-features)
-1. [Optional Features](#optional-features)
-1. [App Walkthrough](#app-walkthrough)
+1. [User Stories](#user-stories)
+1. [Video Walkthrough](#video-walkthrough)
+1. [Notes](#notes)
 1. [License](#license)
 
-## Required Features
+## User Stories
 
-The app is able to:  
+The following **required** functionality is complete:
 
-1. Calculate the tip and total bill amount based on user input  
-2. Allow user to change the tip percentage  
-3. Allow user to save their tip-related preferences in settings  
+* [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [x] Settings page to change the default tip percentage.
 
-## Optional Features
+The following **optional** features are implemented:
+* [x] UI animations
+* [x] Remembering the bill amount across app restarts (if <10mins)
+* [x] Using locale-specific currency and currency thousands separators.
+* [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
-In addition, the app also supports the following additional features:
+The following **additional** features are implemented:
 
-1. Remember the bill amount across app restarts as long as it is within a 10 min window  
-2. User can switch between light/dark color themes in settings  
-3. The keyboard is always visible and the bill amount is always the first responder  
-4. The tip and final bill amount are animated  
-5. The layout of the app was improved by changing font/layout and adding sliders which allow the user to have more flexibility in setting the tip percentages  
-6. App will suggest a lunch and dinner tip percentage for those users that need more guidance
-7. App allows users to reset the tip percentages to predefined values by clicking on the "reset" buttons in settings
-8. App Icon - Icon made by Roundicons in technology from www.flaticon.com 
+* [x] The layout of the app was improved by changing font/layout and adding sliders which allow the user to have more flexibility in setting the tip percentages  
+* [x] App will suggest a lunch and dinner tip percentage for those users that need more guidance
+* [x] App allows users to reset the tip percentages to predefined values by clicking on the "reset" buttons in settings
+* [x] Added App Icon - made by Roundicons in technology from www.flaticon.com 
 
-**[Back to top](#table-of-contents)**
+## Video Walkthrough 
 
-## App Walkthrough 
+Here's a walkthrough of implemented user stories:
 
 Basic Functionality: User should be able to enter bill amount. App will calculate the tip and total and display them in a short fade in animation. Notice that the user can slide left and right to adjust the desired tip.
 
@@ -60,9 +63,25 @@ The app saves the bill amount so that if the user restarts the app within 10 min
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+## Notes
+
+Some of the challenges included getting the app to initiate with default values for the preferences, getting the app to display the tip and total in locale-specific format, getting the sliders to round up to a precision of 0.01, implementing a theme for the app, and saving the bill amount across app sessions.
+
 ## License
 
-Copyright (c) 2016 Jasmine Lee. 
-Email:jasmine.lee@airbnb.com
+    Copyright [2016] [Chia-Hsuan Lee]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
 
 **[Back to top](#table-of-contents)**
