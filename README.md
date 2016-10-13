@@ -38,9 +38,19 @@ In addition, the app also supports the following additional features:
 
 Basic Functionality: User should be able to enter bill amount. App will calculate the tip and total and display them in a short fade in animation. Notice that the user can slide left and right to adjust the desired tip.
 
+<img src= 'https://github.com/ljasmine/tippy/blob/master/basicFunction.gif' />
+
+Settings Page: User can change their tip preferences from the settings page as well as pick a preferred theme.
+
+<img src= 'https://github.com/ljasmine/tippy/blob/master/settings.gif' />
+
 When the user switches his/her region, the app will display the tip and total in the standard currency format of the locale.
 
+<img src= 'https://github.com/ljasmine/tippy/blob/master/localeSpecific.gif' />
+
 The app saves the bill amount so that if the user restarts the app within 10 min, the same bill amount is displayed.
+
+<img src= 'https://github.com/ljasmine/tippy/blob/master/localeSpecific.gif' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -48,6 +58,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## License
 
-Copyright (c) 2016 Jasmine Lee
+Copyright (c) 2016 Jasmine Lee. 
+Email:jasmine.lee@airbnb.com
 
 **[Back to top](#table-of-contents)**
