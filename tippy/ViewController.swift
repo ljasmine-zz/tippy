@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Make bill field the focus and bring up keyboard
         billField.becomeFirstResponder()
         
         let defaults = UserDefaults.standard
