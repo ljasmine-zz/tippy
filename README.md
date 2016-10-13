@@ -17,8 +17,6 @@ The app is able to:
 2. Allow user to change the tip percentage  
 3. Allow user to save their tip-related preferences in settings  
 
-**[Back to top](#table-of-contents)**
-
 ## Optional Features
 
 In addition, the app also supports the following additional features:
@@ -40,21 +38,27 @@ Basic Functionality: User should be able to enter bill amount. App will calculat
 
 <img src= 'https://github.com/ljasmine/tippy/blob/master/basicFunction.gif' />
 
+**[Back to top](#table-of-contents)**
+
 Settings Page: User can change their tip preferences from the settings page as well as pick a preferred theme.
 
 <img src= 'https://github.com/ljasmine/tippy/blob/master/settings.gif' />
+
+**[Back to top](#table-of-contents)**
 
 When the user switches his/her region, the app will display the tip and total in the standard currency format of the locale.
 
 <img src= 'https://github.com/ljasmine/tippy/blob/master/localeSpecific.gif' />
 
+**[Back to top](#table-of-contents)**
+
 The app saves the bill amount so that if the user restarts the app within 10 min, the same bill amount is displayed.
 
 <img src= 'https://github.com/ljasmine/tippy/blob/master/savingBillAmount.gif' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
 **[Back to top](#table-of-contents)**
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## License
 
