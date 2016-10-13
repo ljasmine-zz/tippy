@@ -50,7 +50,7 @@ When the user switches his/her region, the app will display the tip and total in
 
 The app saves the bill amount so that if the user restarts the app within 10 min, the same bill amount is displayed.
 
-<img src= 'https://github.com/ljasmine/tippy/blob/master/localeSpecific.gif' />
+<img src= 'https://github.com/ljasmine/tippy/blob/master/savingBillAmount.gif' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
